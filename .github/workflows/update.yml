@@ -40,11 +40,12 @@ jobs:
             if [ -f data/history.json ]; then DAYS=14; else DAYS=45; fi
           fi
           python scripts/pta_gex.py --days "$DAYS"
+          if [ -f data/latest.json ]; then python scripts/build_offline.py PTA; fi
       - name: 提交資料
         run: |
           git config user.name "pta-bot"
           git config user.email "pta-bot@users.noreply.github.com"
-          git add -A data
+          git add -A data offline
           if git diff --cached --quiet; then echo "沒有新資料"; exit 0; fi
           git commit -m "data: PTA $(TZ=Asia/Shanghai date +%F)"
           git push
