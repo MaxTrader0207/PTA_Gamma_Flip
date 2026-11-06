@@ -129,7 +129,7 @@ body.nodl .dl{display:none}
 </header>
 
 <main>
-  <div id="emptyState" class="card empty">每日資料讀取中。資料在交易日 18:21 後自動更新。</div>
+  <div id="emptyState" class="card empty">每日資料讀取中。資料在交易日 18:27 後自動更新。</div>
 
   <section id="heroCard" class="card hero" hidden>
     <div class="lab">合併 Gamma Flip</div>
@@ -582,7 +582,7 @@ async function load(){
   const timer=setTimeout(()=>{if(!got)$("emptyState").textContent="每日資料暫時讀不到，請稍後再開啟。";},10000);
   const db=window.claude?.use?await window.claude.use("db").catch(()=>null):null;
   if(db){
-    db.doc("pta/latest").onSnapshot(s=>{if(s.exists&&applySnapshot(s.data())){got=true;clearTimeout(timer);}else if(!s.metadata?.fromCache&&!got)$("emptyState").textContent="尚未寫入每日資料。資料在交易日 18:21 後自動更新。";},
+    db.doc("pta/latest").onSnapshot(s=>{if(s.exists&&applySnapshot(s.data())){got=true;clearTimeout(timer);}else if(!s.metadata?.fromCache&&!got)$("emptyState").textContent="尚未寫入每日資料。資料在交易日 18:27 後自動更新。";},
       ()=>{if(!got)$("emptyState").textContent="每日資料讀取失敗，請稍後再開啟。";});
     db.doc("pta/history").onSnapshot(s=>{if(s.exists){history=s.data().items||[];if(last)renderHistory();}},()=>{});
     $("deskLink").href=DESKTOP_ARTIFACT;

@@ -228,7 +228,7 @@ code{font-family:var(--f-mono);font-size:12px;background:var(--chip);padding:1px
     <details>
       <summary>資料取得與計算方法</summary>
       <ol>
-        <li>每日自動更新：GitHub Actions 於交易日 16:37 起從鄭州商品交易所下載期權每日行情（OptionDataDaily.txt）與期貨每日行情（FutureDataDaily.txt），只取 PTA（TA），算好後存成 JSON；每天 18:21 由排程任務寫入本頁，開著的頁面會即時刷新。</li>
+        <li>每日自動更新：GitHub Actions 於交易日 16:37 起從鄭州商品交易所下載期權每日行情（OptionDataDaily.txt）與期貨每日行情（FutureDataDaily.txt），只取 PTA（TA），算好後存成 JSON；每天 18:27 由排程任務寫入本頁，開著的頁面會即時刷新。</li>
         <li>手動模式：也可到鄭商所「交易數據 → 每日行情」下載期權與期貨兩個 txt，一次選取兩個檔案上傳。</li>
         <li>每個期權月份以同月份 PTA 期貨為標的；以持倉量最大的「主力期貨」為基準價，履約價換算成主力等價（K × 主力價 ÷ 該月期貨價），所有月份放在同一條價格軸上合併。牆、磁吸、Flip 都以主力價格表示；選擇權組合則列出該月份實際履約價。</li>
         <li>IV 優先採用鄭商所公布的隱含波動率，沒有時才用 Black-76 由結算價反推。</li>
