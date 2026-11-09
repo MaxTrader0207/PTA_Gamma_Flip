@@ -778,7 +778,34 @@
 "close": 6120.0,
 "tr": 138.0,
 "atr5": 275.6
+},
+{
+"date": "2026-11-09",
+"F": 6110.0,
+"main": "TA701",
+"naive_gex": -2689.41,
+"naive_flip": 6136.8,
+"naive_flipN1": 6115.7,
+"naive_gexN1": -548.13,
+"naive_flipN2": 6498.6,
+"naive_gexN2": -2162.82,
+"naive_flipM": 6033.2,
+"naive_gexM": 21.54,
+"short_gex": -46344.32,
+"short_flip": null,
+"short_flipN1": null,
+"short_gexN1": -32936.77,
+"short_flipN2": null,
+"short_gexN2": -12700.72,
+"short_flipM": null,
+"short_gexM": -706.83,
+"open": 6094.0,
+"high": 6166.0,
+"low": 6046.0,
+"close": 6050.0,
+"tr": 120.0,
+"atr5": 223.6
 }
 ],
-"updatedAt": "2026-11-07T01:26:04+08:00"
+"updatedAt": "2026-11-10T03:04:21+08:00"
 }
