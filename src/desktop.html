@@ -120,9 +120,61 @@ code{font-family:var(--f-mono);font-size:12px;background:var(--chip);padding:1px
 .msg{font-size:13px;color:var(--neg)}
 @media (max-width:820px){.hero{grid-template-columns:1fr}.groups{grid-template-columns:1fr}.chartbox{height:280px}.chartbox.tall{height:300px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.summary{margin:0;font-size:13px;line-height:1.6;padding:10px 12px;border-radius:6px;background:var(--chip)}
+.summary>b{display:block;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em;margin-bottom:2px}
+.summary{display:flex;flex-direction:column;gap:6px}
+.summary .verdict{margin:0}
+.summary ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.summary .lv{font-size:12px;padding:6px 0;border-block:1px solid var(--line)}
+.summary em.warn{font-style:normal;font-weight:700;color:var(--neg)}
+.btlight{border-left:4px solid var(--line);padding:10px 12px;border-radius:8px;background:color-mix(in srgb,var(--line) 22%,transparent);display:grid;gap:6px;font-size:13px;line-height:1.6}
+.btlight p{margin:0}
+.btlight.red{border-left-color:var(--neg);background:color-mix(in srgb,var(--neg) 9%,transparent)}
+.btlight.green{border-left-color:var(--pos);background:color-mix(in srgb,var(--pos) 9%,transparent)}
+.bt-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:15px}
+.bt-dot{width:12px;height:12px;border-radius:50%;background:var(--muted);flex:none}
+.btlight.red .bt-dot{background:var(--neg);box-shadow:0 0 0 4px color-mix(in srgb,var(--neg) 22%,transparent)}
+.btlight.green .bt-dot{background:var(--pos);box-shadow:0 0 0 4px color-mix(in srgb,var(--pos) 22%,transparent)}
+.btlight.red .bt-head b{color:var(--neg)}.btlight.green .bt-head b{color:var(--pos)}
+.bt-why{color:var(--muted);font-size:13px}
+.bt-sell{border-top:1px dashed var(--line);padding-top:6px;display:grid;gap:4px}.bt-tiers{margin:0;padding-left:18px;display:grid;gap:4px}.bt-sell.no b:last-of-type{color:var(--neg)}
+.bt-src{color:var(--muted);font-size:12px}
+.paper td,.paper th{white-space:nowrap}
+.pnl-pos{color:var(--pos);font-weight:700}.pnl-neg{color:var(--neg);font-weight:700}
+.ldot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--muted);vertical-align:middle}
+.ldot.red{background:var(--neg)}.ldot.green{background:var(--pos)}
+.paper-note{color:var(--muted);font-size:12px;margin:6px 0 0}
+.expchips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.expchip{font-size:12px;padding:3px 8px;border-radius:999px;background:var(--chip);color:var(--ink)}
+.expchip.soon{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn);font-weight:700}
+.hl{color:var(--neg);font-weight:700}
+.bstat{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.bstat.ok{background:color-mix(in srgb,var(--pos) 18%,transparent);color:var(--pos)}
+.bstat.bad{background:color-mix(in srgb,var(--neg) 18%,transparent);color:var(--neg)}
+.bstat.warn{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn)}
+.bstat.mid{background:var(--chip);color:var(--muted)}
+.board td:first-child{white-space:normal;min-width:180px}
+.bt-night{border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:grid;gap:4px;background:var(--bg)}
+.bt-night p{margin:0}
+.bt-night.red .bt-dot{background:var(--neg)}.bt-night.green .bt-dot{background:var(--pos)}
+.bt-night.red .bt-head b{color:var(--neg)}.bt-night.green .bt-head b{color:var(--pos)}
+.bt-night.changed{border-width:2px;border-color:var(--warn)}
+.nchg{background:var(--warn);color:#fff;font-size:12px;font-weight:700;padding:1px 8px;border-radius:999px}
+.health{border:2px solid var(--neg);background:color-mix(in srgb,var(--neg) 10%,var(--bg));color:var(--ink);border-radius:8px;padding:8px 12px;margin:8px 0;font-size:13px;line-height:1.6}
+.health b{color:var(--neg)}
+.summary{border:2px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--panel);display:grid;gap:6px;margin:8px 0}
+.summary.red{border-color:var(--neg)}.summary.green{border-color:var(--pos)}
+.sum-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.sum-head h2{margin:0;font-size:16px}
+.sum-list{margin:0;padding-left:20px;display:grid;gap:4px;font-size:14px;line-height:1.6}
+.sum-list li.neg b,.sum-list li.neg{color:var(--neg)}.sum-list li.pos>b:first-child{color:var(--pos)}
+.sizeform{display:flex;flex-wrap:wrap;gap:8px;align-items:end;font-size:12px}
+.sizeform label{display:grid;gap:2px}.sizeform input{width:130px;max-width:100%}
+.ghost{background:transparent;border:1px solid var(--line);border-radius:6px;padding:3px 10px;color:var(--ink);cursor:pointer;font-size:12px}
+.bt-sell.no b:last-of-type{color:var(--neg)}
 </style>
 
 <div class="wrap">
+  <div id="healthBar" class="health" role="alert" hidden></div>
   <div class="top">
     <div>
       <h1>PTA Gamma Flip 戰情板</h1>
@@ -153,6 +205,7 @@ code{font-family:var(--f-mono);font-size:12px;background:var(--chip);padding:1px
     </div>
   </section>
 
+  <section id="summaryCard" class="summary" hidden></section>
   <section class="hero">
     <div id="regimeCard" class="panel regime">
       <span class="sub">合併 Gamma Flip（全部勾選到期）</span>
@@ -167,6 +220,7 @@ code{font-family:var(--f-mono);font-size:12px;background:var(--chip);padding:1px
         <dt>Call Wall / Put Wall</dt><dd id="kWalls">—</dd>
       </dl>
       <p id="readout" class="read"></p>
+      <div id="btLight" class="btlight" hidden></div>
     </div>
     <div class="panel">
       <div class="head">
@@ -208,6 +262,12 @@ code{font-family:var(--f-mono);font-size:12px;background:var(--chip);padding:1px
     <div id="histNote" class="sub">結算價在合併 Flip 之上＝正 Gamma 日；跌破 Flip＝負 Gamma 日。依上方方向假設切換。</div>
   </section>
 
+  <section id="paperPanel" class="panel" hidden>
+    <div class="head"><h2>規則總覽與模擬帳本</h2></div>
+    <div id="boardBody"></div>
+    <div id="paperBody"></div>
+  </section>
+
   <section class="panel">
     <div class="head"><h2>到期明細</h2>
       <div class="quick" role="group" aria-label="快速選擇到期">
@@ -228,6 +288,9 @@ code{font-family:var(--f-mono);font-size:12px;background:var(--chip);padding:1px
     <details>
       <summary>資料取得與計算方法</summary>
       <ol>
+        <li>回測燈號與規則：GitHub 上手動執行「PTA Gamma Flip 長期回測」會逐日下載 PTA 期權上市（2019/12）以來的鄭商所行情，計算每天的合併 Flip，再檢驗：紅綠燈對隔日波幅的預測力、預估波幅模型、賣方兩級（k=2.5／3.0）、買方兩條、均線跌破買 Call、VRP 與 Put 偏斜。燈號區塊、今日重點、規則總覽的統計都來自 backtest/signal.json，重跑回測會自動更新。鄭商所沒有公布買賣報價，回測與模擬帳本一律用結算價成交、每腳扣 1 元／噸。到期日依實際有資料的交易日推算；持有到期以標的期貨的到期日結算價計算內含價值。</li>
+        <li>和台指期版的差異：PTA 期權是月選，賣方一筆持有約 15～20 個交易日，同時持有的部位會重疊；均線以主力連續（轉倉日用同一合約的報酬率銜接）計算；鄭商所夜盤（21:00～23:00）的成交併入下一個交易日的日行情，沒有單獨的夜盤燈號；沒有三大法人資料，所以沒有自營商模式。</li>
+        <li>資料健康：資料落後應有的最新交易日（大陸休市日請更新 data/holidays.json），或期權筆數、IV、ATR 缺漏時，頁首會出現紅框；自動更新或回測失敗時會在 repo 開 Issue 通知。</li>
         <li>每日自動更新：GitHub Actions 於交易日 16:37 起從鄭州商品交易所下載期權每日行情（OptionDataDaily.txt）與期貨每日行情（FutureDataDaily.txt），只取 PTA（TA），算好後存成 JSON；每天 18:27 由排程任務寫入本頁，開著的頁面會即時刷新。</li>
         <li>手動模式：也可到鄭商所「交易數據 → 每日行情」下載期權與期貨兩個 txt，一次選取兩個檔案上傳。</li>
         <li>每個期權月份以同月份 PTA 期貨為標的；以持倉量最大的「主力期貨」為基準價，履約價換算成主力等價（K × 主力價 ÷ 該月期貨價），所有月份放在同一條價格軸上合併。牆、磁吸、Flip 都以主力價格表示；選擇權組合則列出該月份實際履約價。</li>
@@ -393,6 +456,7 @@ function buildState(snap,source){
   const near=exps[0];const ks=[...new Set(snap.rows.filter(r=>r[1]===near).map(r=>+r[2]))].sort((a,b)=>a-b);
   let st=Infinity;for(let i=1;i<ks.length;i++)st=Math.min(st,ks[i]-ks[i-1]);STEP=isFinite(st)&&st>0?st:50;
   const val=new Date(snap.valuation||snap.tradeDate+"T15:00:00+08:00");
+  FUTS=futs;HOLI=new Set(snap.holidays||[]);HEALTH=snap.health||null;BT=snap.btSignal||null;PAPER=snap.paper||null;
   return {rows,spot:S0,val,source,tradeDate:snap.tradeDate,included:{},atr:+snap.atr5||null};
 }
 
@@ -444,6 +508,11 @@ function render(){
   else if(gNow>=0){card.classList.add("pos");pill="正 Gamma｜波動壓抑";read=`主力每漲 1%，造市商需賣出約 ${fmt(Math.abs(hNow),0)} 手期貨，跌則買回，價格傾向在 ${W.put?fmt(W.put,0):"下方"}～${W.call?fmt(W.call,0):"上方"} 間來回。`;}
   else{card.classList.add("neg");pill="負 Gamma｜波動放大";read=`主力每跌 1%，造市商需再賣出約 ${fmt(Math.abs(hNow),0)} 手期貨，漲則追買，趨勢容易延續${fl?`，站回 ${fmt(fl,0)} 前波動偏大`:""}。`;}
   $("regimePill").textContent=pill;$("readout").textContent=read;
+  {const el=$("btLight"),h=state.source==="auto"?btHtml(BT,state.spot,state.atr,state.rows,state.val):"";el.hidden=!h;el.className="btlight "+(BT?.bucket||"");el.innerHTML=h;}
+  {const h=state.source==="auto"?paperHtml(PAPER):"",b=state.source==="auto"?boardHtml(BT?.stats?._board,PAPER):"";$("paperPanel").hidden=!(h||b);$("paperBody").innerHTML=h;$("boardBody").innerHTML=b;}
+  {const el=$("healthBar"),h=state.source==="auto"?healthHtml(state.tradeDate,HEALTH):"";el.hidden=!h;el.innerHTML=h;}
+  {const el=$("summaryCard"),pl=state.source==="auto"?todayPlan(BT,state.spot,state.atr,state.rows,state.val):null,h=summaryHtml(pl,sizeCfg());
+   el.hidden=!h;el.className="summary "+(pl?pl.light:"");el.innerHTML=h;wireSummary(el,render);}
 
   // group cards —— 以「合併」Gamma 體制為主軸，各區塊提供自己的到期結構、到期後 Flip 位移與可執行的價位
   const gc=$("groups");gc.innerHTML="";
@@ -463,13 +532,14 @@ function render(){
     const adv=groupAdvice(g,{gg,w,expInfo},ctx);
     exportStore[g.key]={g,adv,next:expInfo[0]};
     el.innerHTML=`<h3><span>${g.name}</span><span class="tag ${adv.tagCls}">${adv.label}</span></h3>
+      <div class="expchips">${adv.expList.map(x=>`<span class="expchip${x.td<=1?" soon":""}"><b>${x.code}</b> ${x.date}到期｜剩 ${x.cal} 天（${x.td} 個交易日）</span>`).join("")}</div>
       <div class="exbtns small"><button type="button" data-ex="copy" data-g="${g.key}">複製</button><button type="button" data-ex="md" data-g="${g.key}" class="dl">下載 .md</button><button type="button" data-ex="txt" data-g="${g.key}" class="dl">下載 .txt</button></div>
       <div class="summary">
         <b>小結</b>
         <p class="verdict">${adv.verdict}</p>
         <dl class="kv lv">${adv.levels.map(([k,v])=>`<dt>${k}</dt><dd>${v}</dd>`).join("")}</dl>
         <b>具體操作</b>
-        <ol>${adv.plan.map(t=>`<li>${t}</li>`).join("")}</ol>
+        <ol>${adv.plan.map(t=>`<li>${hlPlan(t)}</li>`).join("")}</ol>
       </div>
       <dl class="kv"><dt>本區塊 GEX（每 1%）</dt><dd>${sgn(gg,0)} 萬元</dd><dt>本區塊 Flip</dt><dd>${f===null?"區間內無":fmt(f,0)}</dd><dt>本區塊 Call / Put Wall</dt><dd>${w.call?fmt(w.call,0):"—"} / ${w.put?fmt(w.put,0):"—"}</dd><dt>未平倉合計</dt><dd>${fmt(oi,0)} 口</dd></dl>
       <div class="tablewrap"><table class="mini"><thead><tr><th>到期</th><th>到期日｜剩餘</th><th>磁吸</th><th>痛點</th></tr></thead><tbody>${
@@ -609,6 +679,214 @@ document.addEventListener("click",e=>{
 });
 
 /* ---------- per-group advice ---------- */
+/* ===== 回測燈號、規則、模擬帳本、資料健康、今日重點（與台指期版相同的邏輯，單位為元／噸） ===== */
+let HOLI=new Set(),HEALTH=null,BT=null,PAPER=null,FUTS={};
+const isoD=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+function tradingDaysTo(val,exp){let n=0;const d=new Date(val.getFullYear(),val.getMonth(),val.getDate());
+  while(d<exp){d.setDate(d.getDate()+1);const w=d.getDay();if(w!==0&&w!==6&&d<=exp&&!HOLI.has(isoD(d)))n++;}return Math.max(1,n);}
+/* 最近到期月份：代號、標的期貨、到期日、標的結算價、報價（實際履約價與結算價） */
+function ptaN1(rows,val){
+  const live=(rows||[]).filter(x=>x.exp>val&&x.pxR!=null&&x.pxR>0);if(!live.length)return null;
+  const exp=live.reduce((a,x)=>x.exp<a?x.exp:a,live[0].exp),und=live.find(x=>+x.exp===+exp).und;
+  const F1=FUTS[und]?.settle;if(!(F1>0))return null;
+  const ch=live.filter(x=>x.und===und).map(x=>({K:x.Kr,isCall:x.isCall,px:x.pxR}));
+  return {und,code:und,exp,F1,ch,n:tradingDaysTo(val,exp)};
+}
+function hlPlan(t){
+  if(/<[a-z]/i.test(t))return t;
+  return t
+    .replace(/^([^：]{2,18})(：)/,'<b class="hl">$1</b>$2')
+    .replace(/(停損[^，。；（）]*)/g,'<span class="hl">$1</span>')
+    .replace(/(目標 [^，。；]*)/g,'<span class="hl">$1</span>')
+    .replace(/(單邊最大風險約 [\d,.]+ 元|最大獲利約 [\d,.]+ 元)/g,'<span class="hl">$1</span>')
+    .replace(/(不追價|不建新倉|全部停止|全數回補|不要逆勢加空|手數比正 Gamma 時減半|區間單全部了結|避免裸賣[^，。；]*|不要押注到期停在這裡|區間策略全部停止|改用負 Gamma 的順勢做法)/g,'<span class="hl">$1</span>');
+}
+function btSt(s,u){const n0=v=>Math.round(v).toLocaleString("zh-TW"),f1=v=>(+v).toFixed(1);
+  return s?`${s.n} 筆、勝率 ${Math.round(s.win*100)}%、平均 ${s.avg>=0?"+":""}${f1(s.avg)} ${u||"元"}${s.t!=null?`（t≈${f1(s.t)}）`:""}`:"—";}
+function btHtml(bt,F,atr,rows,val){
+  if(!bt||!bt.stats||!bt.stats[bt.bucket])return "";
+  const n0=v=>Math.round(v).toLocaleString("zh-TW"),p1=v=>(v*100).toFixed(0)+"%",f2=v=>(+v).toFixed(2);
+  const s=bt.stats[bt.bucket],m=bt.stats._model,meta=bt.stats._meta||{},red=bt.bucket==="red";
+  const why=bt.flip?`主力結算 ${n0(F)} 在合併 Flip ${n0(bt.flip)} 之${red?"下":"上"}`:(red?"±8% 內找不到 Flip，且總 GEX 為負":"±8% 內找不到 Flip，總 GEX 為正");
+  let est="",hot=false;
+  if(m&&atr&&F){const ap=atr/F*100,e=m.a+m.b*ap+(red?m.c:0);hot=e>=1.5*(meta.tr1||2);
+    est=`<p class="bt-est">預估下一個交易日真實波幅 <b>${f2(e)}%</b>（主力約 <b>${n0(e/100*F)} 元</b>）＝ 基準 ${f2(m.a)}% ＋ 近 5 日 ATR ${f2(ap)}% × ${f2(m.b)}${red?` ＋ 紅燈加成 ${f2(m.c)}%`:""}</p>`;}
+  const tip=red?"實際波動常高於隱含波動：避免裸賣期權，賣方改用有保護的價差並縮小手數。"
+    :hot?"雖在 Flip 之上，但近期波動還沒退：賣方先降手數、履約價放遠。":"實際波動通常低於隱含波動，賣方相對有利。";
+  return `<div class="bt-head"><span class="bt-dot" aria-hidden="true"></span><b>${red?"紅燈｜Flip 之下（負 Gamma）":"綠燈｜Flip 之上（正 Gamma）"}</b><span class="bt-why">${why}</span></div>
+<p class="bt-stat">回測同組 ${s.n} 天：隔日真實波幅 <b>${f2(s.tr1)}%</b>（全部平均 ${f2(meta.tr1||0)}%）、漲跌 ≥${meta.bigPct||1.5}% 機率 <b>${p1(s.big)}</b>（全部 ${p1(meta.big||0)}）、未來 5 日實際÷隱含波動 <b>${s.rv_iv==null?"—":f2(s.rv_iv)}</b></p>
+${est}<p class="bt-tip">${tip}</p>${btSellHtml(bt,F,atr,rows,val)}${btVolHtml(bt)}${btBuyHtml(bt,rows,val)}${btMaHtml(bt,rows,val)}
+<p class="bt-src">回測期間 ${meta.from||""}～${meta.to||""}（鄭商所沒有公布買賣報價，成交用結算價、每腳扣 ${meta.cost||1} 元／噸）。燈號固定以收盤資料、Call 多 Put 空、全部月份計算，不受上方勾選與方向切換影響${m?`；紅燈對隔日波幅的影響 t≈${f2(m.t_red)}`:""}。</p>`;
+}
+function sellPicks(bt,atr,rows,val,F){
+  const S=bt.stats&&bt.stats._strategy,m=bt.stats&&bt.stats._model,N=ptaN1(rows,val);
+  if(!S||!S.tiers||!m||!atr||!N)return null;
+  const red=bt.bucket==="red",E=(m.a+m.b*atr/F*100+(red?m.c:0))/100*N.F1;
+  return {N,red,E,tiers:S.tiers.map(t=>{const D=t.k*E*Math.sqrt(N.n);
+    const c=N.ch.filter(x=>x.isCall&&x.K>=N.F1+D).sort((a,b)=>a.K-b.K)[0],p=N.ch.filter(x=>!x.isCall&&x.K<=N.F1-D).sort((a,b)=>b.K-a.K)[0];
+    return {...t,D,c,p,ok:!red&&!!(c&&p)};})};
+}
+function btSellHtml(bt,F,atr,rows,val){
+  const P=sellPicks(bt,atr,rows,val,F);if(!P)return "";
+  const n0=v=>Math.round(v).toLocaleString("zh-TW"),f1=v=>(+v).toFixed(1),{N}=P,ds=`${N.exp.getMonth()+1}/${N.exp.getDate()}`;
+  const head=`<b>賣方履約價（回測規則）</b>：${N.code} 期權（${ds} 到期，剩 ${N.n} 個交易日，標的 ${N.und} ${n0(N.F1)}），Call＋Put 各賣一手、持有到期。`;
+  const statTxt=t=>{const f=t.full,o=t.oos,c=t.cost2;if(!f)return "回測樣本不足";return `全期平均 ${f.avg>=0?"+":""}${f1(f.avg)} 元、最大回撤 ${n0(f.dd)}（t≈${f.t==null?"—":f1(f.t)}）`+
+    (o?`；樣本外平均 ${o.avg>=0?"+":""}${f1(o.avg)}（t≈${o.t==null?"—":f1(o.t)}）`:"")+(c?`；成本加倍時平均 ${f1(c.avg)}`:"");};
+  if(P.red){const r=P.tiers[0].red;return `<div class="bt-sell no"><div>${head}<b class="hl">今天是紅燈，回測不做賣方</b>${r?`：紅燈日同規則 ${r.n} 筆累計 ${n0(r.total)} 元／噸、最大單筆 ${n0(r.worst)}`:""}。</div></div>`;}
+  const li=P.tiers.map(t=>`<li><b>${t.name}</b>（${t.k} × 預估波幅 × √${N.n} ≈ ±${n0(t.D)} 元）：${t.ok?`賣 <b>${n0(t.c.K)}C</b>（${f1(t.c.px)}）＋ 賣 <b>${n0(t.p.K)}P</b>（${f1(t.p.px)}），合計 ${f1(t.c.px+t.p.px)} 元／噸`:"超出有報價的履約價範圍，<b>不進場</b>"}<br><span class="bt-src">${statTxt(t)}</span></li>`).join("");
+  return `<div class="bt-sell"><div>${head}</div><ul class="bt-tiers">${li}</ul><span class="bt-src">價格為當日結算價；實際成交請以盤中報價為準。PTA 期權為月選，持有期間較長，請留意保證金與到期行權轉期貨部位。</span></div>`;
+}
+function btVolHtml(bt){
+  const v=bt.vol,R=bt.stats&&bt.stats._rules2;if(!v||!R)return "";
+  const p1=x=>(x*100).toFixed(1),sg=x=>(x>=0?"+":"")+p1(x),r=R.results||{};
+  const g=k=>Object.keys(r).find(x=>x.startsWith(k)),st=k=>btSt(r[g(k)]);
+  const hiSkew=v.skewPct!=null&&v.skewPct>=0.8;
+  return `<div class="bt-sell bt-vol"><div><b>波動指標</b>：30 天價平 IV ${v.iv30==null?"—":p1(v.iv30)+"%"}、近 20 日實現波動 ${v.rv20==null?"—":p1(v.rv20)+"%"}，VRP ${v.vrp==null?"—":sg(v.vrp)+" 個百分點"}（中位數 ${sg(R.vrpMedian||0)}）；Put 偏斜 ${v.skew==null?"—":p1(v.skew)+" 個百分點"}${v.skewPct==null?"（資料累積中）":`，位於近 60 日第 ${Math.round(v.skewPct*100)} 百分位${hiSkew?"，<b class=\"hl\">高檔：賣方手數減半</b>":""}`}。</div>
+<span class="bt-src">回測（賣方標準級）：全部 ${st("S1")}；VRP 高於中位數 ${st("V2")}；偏斜不在高檔 ${st("V3 ")}；偏斜在高檔 ${st("V3'")}。</span></div>`;
+}
+function btBuyHtml(bt,rows,val){
+  const B=bt.stats&&bt.stats._buyer,N=ptaN1(rows,val);if(!B||!N)return "";
+  const n0=v=>Math.round(v).toLocaleString("zh-TW"),f1=v=>(+v).toFixed(1);
+  const hv=x=>x&&x.first&&x.second?`；前後兩段各 ${x.first.avg>=0?"+":""}${n0(x.first.avg)}／${x.second.avg>=0?"+":""}${n0(x.second.avg)} 元`:"";
+  const red=bt.bucket==="red",exp=bt.expand===true,down=bt.ret!=null&&bt.ret<0;
+  const Ks=[...new Set(N.ch.map(x=>x.K))].filter(K=>N.ch.some(x=>x.K===K&&x.isCall)&&N.ch.some(x=>x.K===K&&!x.isCall));
+  const K=Ks.length?Ks.reduce((a,k)=>Math.abs(k-N.F1)<Math.abs(a-N.F1)?k:a,Ks[0]):null;
+  const c=K!=null?N.ch.find(x=>x.K===K&&x.isCall):null,p=K!=null?N.ch.find(x=>x.K===K&&!x.isCall):null,ideas=[];
+  if(red&&exp&&c&&p)ideas.push(`<li><b>買價平跨式</b>：${N.code} 買 ${n0(K)}C（${f1(c.px)}）＋ ${n0(K)}P（${f1(p.px)}），共 ${f1(c.px+p.px)} 元，持有到期。回測：${btSt(B.straddle.full)}${hv(B.straddle)}</li>`);
+  if(red&&down&&c)ideas.push(`<li><b>買價平 Call（跌深反彈）</b>：${N.code} 買 ${n0(K)}C（${f1(c.px)}），持有到期。回測：${btSt(B.call.full)}${hv(B.call)}</li>`);
+  const why=`今天${red?"紅燈":"綠燈"}、近 5 日 ATR ${bt.expand==null?"—":exp?"放大中":"沒有放大"}、當日${bt.ret==null?"—":(bt.ret>=0?"上漲 ":"下跌 ")+Math.abs(bt.ret).toFixed(2)+"%"}`;
+  const none=`<span>條件不成立，<b>不做買方</b>。對照：其他日子買價平跨式 ${btSt(B.straddleOther.full)}；綠燈下跌日買 Call ${btSt(B.callGreenDown.full)}；買價外勒式 ${btSt(B.otm.full)}。</span>`;
+  return `<div class="bt-sell bt-buy"><div><b>買方條件（回測）</b>：${why}。</div>${ideas.length?`<ul class="bt-tiers">${ideas.join("")}</ul>`:none}</div>`;
+}
+function btMaHtml(bt,rows,val){
+  const M=bt.stats&&bt.stats._ma,ma=bt.ma;if(!M||!ma||!ma.vals)return "";
+  const n0=v=>Math.round(v).toLocaleString("zh-TW"),f1=v=>(+v).toFixed(1);
+  const state_=Object.keys(ma.vals).map(n=>`${n}MA ${n0(ma.vals[n])}（${ma.above[n]?"站上":"跌破"}、${ma.rising[n]==null?"—":ma.rising[n]?"上揚":"下彎"}）`).join("、");
+  const sp=(M.split||[]),sr=sp.find(x=>x.light==="紅燈"),sg=sp.find(x=>x.light==="綠燈");
+  let act="";
+  if(ma.breaks&&ma.breaks.length){const N=ptaN1(rows,val);
+    const c=N?N.ch.filter(x=>x.isCall&&x.K>=N.F1*1.01).sort((a,b)=>a.K-b.K)[0]:null;
+    act=`<li><b>今天近期第一次跌破 ${ma.breaks.map(n=>n+"MA").join("、")}，且均線上揚</b>：${c?`買 ${N.code} ${n0(c.K)}C（${f1(c.px)}），持有到期`:"找不到價外 1% 的報價"}。</li>`;}
+  return `<div class="bt-sell bt-ma"><div><b>均線跌破（回測）</b>：${state_||"資料累積中"}。</div>
+${act?`<ul class="bt-tiers">${act}</ul>`:`<span>今天沒有「近期第一次跌破、且均線上揚」的訊號。</span>`}
+<span class="bt-src">回測 ${M.from}～${M.to}（${M.src||"主力連續"}，跌破前連續 ${M.N} 日站上、今天均線高於昨天）：買最近月份價外 1% Call 持有到期 ${btSt(M.call)}；同樣條件買 Put ${btSt(M.put)}；對照每天都買 ${btSt(M.baseCall)}。紅燈 ${btSt(sr)}，綠燈 ${btSt(sg)}。</span></div>`;
+}
+function boardHtml(B,pp){
+  if(!B||!B.rules)return "";
+  const f1=v=>(+v).toFixed(1),sg=v=>(v>=0?"+":"")+f1(v);
+  const live={};for(const t of (pp&&pp.tiers)||[])live[t.name]=t;
+  const cell=s=>s?`${sg(s.avg)}<span class="muted">｜${s.n} 筆｜t ${s.t==null?"—":f1(s.t)}</span>`:"—";
+  const rows=B.rules.map(r=>{const f=r.full,a=r.first,b=r.second,L=live[r.key];
+    const ln=L&&L.closed?L.closed:0,la=ln?L.total/ln:null;
+    let st,cls;
+    if(!f||f.avg<=0||(f.t!=null&&f.t<1.5)){st="回測不支持";cls="bad";}
+    else if(!a||!b||a.avg<=0||b.avg<=0){st="前後段不一致";cls="warn";}
+    else if(ln<10){st=`實績累積中（${ln} 筆）`;cls="mid";}
+    else if(la<f.avg-2*f.sd/Math.sqrt(ln)){st="實績明顯落後，暫停參考";cls="bad";}
+    else {st="正常";cls="ok";}
+    const lv=ln?`${sg(la)}<span class="muted">｜${ln} 筆｜累計 ${sg(L.total)}</span>`:"—";
+    return `<tr><td>${r.name}</td><td>${cell(f)}</td><td>${cell(a)}</td><td>${cell(b)}</td><td>${lv}</td><td><span class="bstat ${cls}">${st}</span></td></tr>`;}).join("");
+  return `<div class="tablewrap"><table class="mini board"><thead><tr><th>規則</th><th>回測全期（平均／筆數／t）</th><th>前段</th><th>後段（${B.mid} 起）</th><th>模擬帳本實績</th><th>狀態</th></tr></thead><tbody>${rows}</tbody></table></div>
+<p class="paper-note">回測期間 ${B.from}～${B.to}，以結算價成交、每腳扣 ${B.fee} 元／噸；單位元／噸（1 手 5 噸）。狀態：回測平均 ≤0 或 t&lt;1.5 →「回測不支持」；前段或後段平均 ≤0 →「前後段不一致」；模擬帳本已結算 ≥10 筆且平均低於「回測平均 − 2 個標準誤」→「暫停參考」。</p>`;
+}
+function paperHtml(pp,lim){
+  if(!pp||!pp.tiers||!pp.tiers.length)return "";
+  const n0=v=>v==null?"—":Math.round(v).toLocaleString("zh-TW"),f1=v=>v==null?"—":(+v).toFixed(1),sg=v=>v==null?"—":(v>=0?"+":"")+(+v).toFixed(1);
+  const sum=pp.tiers.map(t=>`<tr><td>${t.k==null?t.name:`${t.name}（k=${t.k}）`}</td><td>${t.days}</td><td>${t.traded}</td><td>${t.skipRed}／${t.skipRange}</td><td>${t.closed}／${t.open}</td><td class="${t.total>=0?"pnl-pos":"pnl-neg"}">${sg(t.total)}</td><td>${t.win==null?"—":Math.round(t.win*100)+"%"}</td><td>${f1(t.worst)}</td></tr>`).join("");
+  const rec=(pp.recent||[]).slice().reverse().slice(0,lim||40).map(e=>{
+    const st=e.status==="skip"?`<span class="muted">${e.reason}</span>`:e.status==="open"?"持有中":`到期 ${e.approx?"≈":""}${n0(e.S)}`;
+    const legs=(e.side==="buy"?"買 ":"")+([e.Kc?`${n0(e.Kc)}C ${f1(e.pc)}`:"",e.Kp?`${n0(e.Kp)}P ${f1(e.pp)}`:""].filter(Boolean).join("／")||"—");
+    const pnl=e.status==="closed"?`<span class="${e.pnl>=0?"pnl-pos":"pnl-neg"}">${sg(e.pnl)}</span>`:"";
+    return `<tr><td>${e.date.slice(5).replace("-","/")}</td><td><span class="ldot ${e.light}"></span>${e.tier}</td><td>${e.code}</td><td>${legs}</td><td>${st}</td><td>${pnl}</td></tr>`;}).join("");
+  return `<div class="tablewrap"><table class="mini paper"><thead><tr><th>規則</th><th>天數</th><th>進場</th><th>不進場（紅燈／超範圍）</th><th>已到期／持有中</th><th>累計（元／噸）</th><th>勝率</th><th>最大單筆</th></tr></thead><tbody>${sum}</tbody></table></div>
+<div class="tablewrap"><table class="mini paper"><thead><tr><th>日期</th><th>燈號｜規則</th><th>期權</th><th>履約價（結算價）</th><th>狀態</th><th>損益</th></tr></thead><tbody>${rec}</tbody></table></div>
+<p class="paper-note">自 ${pp.start||"—"} 起每天收盤自動記錄，以當日結算價成交、每腳扣 ${pp.cost} 元／噸，到期以標的期貨結算價計算內含價值，不是實際下單。「≈」表示到期日資料缺漏，用之後第一個交易日的結算價近似。</p>`;
+}
+function btBucketOf(it){const f=it.naive_flip,g=it.naive_gex;if(f!=null)return it.F<f?"red":"green";if(g==null)return null;return g<0?"red":"green";}
+function btTrackText(items){
+  const o={red:{n:0,tr:0},green:{n:0,tr:0}};
+  for(let i=0;i<items.length-1;i++){const a=items[i],b=items[i+1],k=btBucketOf(a);
+    if(!k||a.main!==b.main||!(a.close>0&&b.high>0&&b.low>0))continue;
+    o[k].n++;o[k].tr+=Math.max(b.high-b.low,Math.abs(b.high-a.close),Math.abs(b.low-a.close))/a.close*100;}
+  if(!o.red.n&&!o.green.n)return "";
+  const f=x=>x.n?(x.tr/x.n).toFixed(2)+"%":"—";
+  return `燈號實績（近 ${o.red.n+o.green.n} 日，同一主力合約）：紅燈 ${o.red.n} 天，隔日平均真實波幅 ${f(o.red)}；綠燈 ${o.green.n} 天，${f(o.green)}。`;
+}
+function expectedTradeDate(nowMs){
+  const t=new Date((nowMs||Date.now())+8*36e5);
+  let d=new Date(Date.UTC(t.getUTCFullYear(),t.getUTCMonth(),t.getUTCDate()));
+  const mins=t.getUTCHours()*60+t.getUTCMinutes();
+  const isTD=x=>{const w=x.getUTCDay();return w!==0&&w!==6&&!HOLI.has(x.toISOString().slice(0,10));};
+  if(!(isTD(d)&&mins>=17*60+30))d=new Date(d.getTime()-864e5);
+  for(let k=0;k<12&&!isTD(d);k++)d=new Date(d.getTime()-864e5);
+  return d.toISOString().slice(0,10);
+}
+function healthHtml(tradeDate,hc,nowMs){
+  if(!tradeDate)return "";
+  const ex=expectedTradeDate(nowMs),out=[];
+  if(tradeDate<ex)out.push(`<b>資料尚未更新</b>：目前顯示 ${tradeDate}，最新交易日應為 ${ex}。可能是鄭商所延遲公布、大陸休市日表未更新，或自動更新失敗（GitHub Actions 失敗時會在 repo 開 Issue 通知）。`);
+  if(hc){const bad=[];
+    if(hc.rows<100)bad.push(`期權資料只有 ${hc.rows} 筆`);
+    if(hc.iv!=null&&hc.iv<0.5)bad.push("交易所 IV 缺漏較多，改用結算價反推");
+    if(hc.atr===false)bad.push("ATR 缺漏");
+    if(bad.length)out.push(`<b>資料不完整</b>：${bad.join("；")}。`);}
+  return out.join("<br>");
+}
+/* 今日重點與部位大小（設定只存在本機瀏覽器） */
+const SIZE_KEY="pta_size_v1";
+function sizeCfg(){try{const v=JSON.parse(localStorage.getItem(SIZE_KEY)||"null");if(v&&v.cap>0)return v;}catch(e){}return null;}
+function sizeSave(v){try{localStorage.setItem(SIZE_KEY,JSON.stringify(v));}catch(e){}}
+/* 鄭商所賣出期權保證金：權利金 ＋ max(期貨保證金 − 虛值額／2, 期貨保證金／2)；賣出寬跨式取兩腿較高者＋另一腿權利金 */
+function sellMargin(F1,c,p,rate){const fm=F1*rate,leg=(K,px,call)=>px+Math.max(fm-Math.max(0,call?K-F1:F1-K)/2,fm/2);
+  const a=leg(c.K,c.px,true),b=leg(p.K,p.px,false);return (Math.max(a,b)+(a>=b?p.px:c.px))*5;}
+function todayPlan(bt,F,atr,rows,val){
+  if(!bt)return null;const P=sellPicks(bt,atr,rows,val,F),N=ptaN1(rows,val);if(!N)return null;
+  const m=bt.stats&&bt.stats._model,red=bt.bucket==="red",E=m&&atr?(m.a+m.b*atr/F*100+(red?m.c:0))/100*F:null;
+  const B=bt.stats&&bt.stats._board;
+  const sells=(P?P.tiers:[]).map(t=>{const rule=(B&&B.rules||[]).find(r=>r.key===t.name);
+    return {name:t.name,k:t.k,ok:t.ok,why:red?"紅燈不做":"超出報價範圍",c:t.c,p:t.p,credit:t.ok?t.c.px+t.p.px:0,dd:rule&&rule.full?Math.abs(rule.full.dd):null};});
+  const Ks=[...new Set(N.ch.map(x=>x.K))].filter(K=>N.ch.some(x=>x.K===K&&x.isCall)&&N.ch.some(x=>x.K===K&&!x.isCall));
+  const K=Ks.length?Ks.reduce((a,k)=>Math.abs(k-N.F1)<Math.abs(a-N.F1)?k:a,Ks[0]):null,atmC=K!=null?N.ch.find(x=>x.K===K&&x.isCall):null;
+  const buyCall=red&&bt.ret!=null&&bt.ret<0&&atmC?{K,px:atmC.px}:null;
+  const maC=bt.ma&&bt.ma.breaks&&bt.ma.breaks.length?N.ch.filter(x=>x.isCall&&x.K>=N.F1*1.01).sort((a,b)=>a.K-b.K)[0]:null;
+  return {N,light:bt.bucket,E,sells,buyCall,ma:maC?{K:maC.K,px:maC.px,lines:bt.ma.breaks}:null,skewHi:bt.vol&&bt.vol.skewPct!=null&&bt.vol.skewPct>=0.8};
+}
+function lotsFor(plan,cfg){
+  if(!cfg)return {};const out={};
+  for(const s of plan.sells){if(!s.ok)continue;
+    const byDD=s.dd?Math.floor(cfg.cap*cfg.dd/100/(s.dd*5)):0,perSet=sellMargin(plan.N.F1,s.c,s.p,cfg.rate/100);
+    const byM=Math.floor(cfg.cap*cfg.mu/100/(perSet*Math.max(1,Math.min(plan.N.n,5))));
+    let L=Math.max(0,Math.min(byDD,byM));if(plan.skewHi)L=Math.floor(L/2);out[s.name]={lots:L,perSet};}
+  const one=px=>px?Math.max(0,Math.floor(cfg.cap*cfg.loss/100/(px*5))):0;
+  if(plan.buyCall)out.buyCall={lots:one(plan.buyCall.px)};if(plan.ma)out.ma={lots:one(plan.ma.px)};
+  return out;
+}
+function summaryHtml(plan,cfg){
+  if(!plan)return "";
+  const n0=v=>Math.round(v).toLocaleString("zh-TW"),f1=v=>(+v).toFixed(1),red=plan.light==="red",L=lotsFor(plan,cfg),N=plan.N;
+  const lt=k=>cfg&&L[k]!=null?`，建議 <b>${L[k].lots} 手</b>${L[k].perSet?`（每組保證金約 ${n0(L[k].perSet)} 元）`:""}`:"";
+  const lines=[`<li class="${red?"neg":"pos"}"><b>${red?"紅燈":"綠燈"}</b>（日盤收盤）｜預估下一個交易日主力真實波幅 ${plan.E?`<b>±${n0(plan.E/2)}</b>（全幅約 ${n0(plan.E)} 元）`:"—"}｜最近月份 ${N.code} 期權，剩 ${N.n} 個交易日（標的 ${n0(N.F1)}）</li>`];
+  for(const s of plan.sells)lines.push(`<li>賣方${s.name}（k=${s.k}）：${s.ok?`賣 <b>${n0(s.c.K)}C</b>＋<b>${n0(s.p.K)}P</b>（結算價合計 ${f1(s.credit)} 元／噸）${lt(s.name)}`:`<span class="muted">不進場（${s.why}）</span>`}</li>`);
+  if(plan.skewHi)lines.push(`<li class="neg">Put 偏斜在近 60 日高檔 → 賣方手數減半（已反映在建議手數）</li>`);
+  lines.push(`<li>買方：${plan.buyCall?`紅燈＋下跌 → 買 <b>${n0(plan.buyCall.K)}C</b>（${f1(plan.buyCall.px)}）${lt("buyCall")}`:`<span class="muted">條件不成立</span>`}</li>`);
+  lines.push(`<li>均線跌破：${plan.ma?`跌破 ${plan.ma.lines.map(x=>x+"MA").join("、")} → 買 <b>${n0(plan.ma.K)}C</b>（${f1(plan.ma.px)}）${lt("ma")}`:`<span class="muted">今天沒有訊號</span>`}</li>`);
+  const cfgTxt=cfg?`資金 ${n0(cfg.cap)} 元、可承受回撤 ${cfg.dd}%、保證金最多用 ${cfg.mu}%、買方單筆最多虧 ${cfg.loss}%、期貨保證金比例 ${cfg.rate}%`:"尚未設定資金，按「部位設定」輸入後會顯示建議手數";
+  return `<div class="sum-head"><h2>今日重點</h2><button type="button" id="sizeBtn" class="ghost">部位設定</button></div><ol class="sum-list">${lines.join("")}</ol>
+<p class="paper-note">${cfgTxt}。手數＝min（資金×可承受回撤 ÷（規則回測最大回撤×5 噸），資金×保證金上限 ÷（每組保證金×同時持有組數，最多以 5 組計））；賣出保證金依鄭商所公式（權利金＋max(期貨保證金−虛值額／2, 期貨保證金／2)，寬跨式取較高一腿＋另一腿權利金）估算，期貨保證金比例請依期貨商實際收取調整。</p>
+<form id="sizeForm" class="sizeform" hidden><label>資金（元）<input name="cap" type="number" min="0" step="10000" inputmode="numeric" value="${cfg?cfg.cap:""}"></label>
+<label>可承受最大回撤 %<input name="dd" type="number" min="1" max="50" step="1" value="${cfg?cfg.dd:10}"></label>
+<label>保證金最多使用 %<input name="mu" type="number" min="5" max="100" step="5" value="${cfg?cfg.mu:50}"></label>
+<label>買方單筆最多虧 %<input name="loss" type="number" min="0.1" max="10" step="0.1" value="${cfg?cfg.loss:1}"></label>
+<label>期貨保證金比例 %<input name="rate" type="number" min="3" max="30" step="0.5" value="${cfg?cfg.rate:10}"></label>
+<button type="submit" class="btn primary">儲存</button></form>`;
+}
+function wireSummary(el,rerender){
+  const b=el.querySelector("#sizeBtn"),f=el.querySelector("#sizeForm");if(!b||!f)return;
+  b.onclick=()=>{f.hidden=!f.hidden;};
+  f.onsubmit=e=>{e.preventDefault();const d=new FormData(f),v={cap:+d.get("cap")||0,dd:+d.get("dd")||10,mu:+d.get("mu")||50,loss:+d.get("loss")||1,rate:+d.get("rate")||10};
+    if(v.cap>0)sizeSave(v);else{try{localStorage.removeItem(SIZE_KEY);}catch(x){}}rerender();};
+}
+
 function expiryStats(code,rows,S,r){
   const byK={};for(const x of rows){const o=byK[x.K]||(byK[x.K]={c:0,p:0});o[x.isCall?"c":"p"]+=x.oi;}
   const ks=Object.keys(byK).map(Number).sort((a,b)=>a-b);
@@ -655,10 +933,14 @@ function groupAdvice(g,{gg,w,expInfo},{S,r,grid,incRows,byExp,gAll,fAll,wAll,sd,
   let verdict;
   const flipTxt=fAll==null?"掃描範圍內沒有合併 Flip":`現價${S>=fAll?"高於":"低於"}合併 Flip ${P(fAll)} 約 ${fmt(Math.abs(S-fAll),0)} 元（${fmt(Math.abs(z),1)} 個日波動）`;
   const turnsNeg=gAll>=0&&gPost<0,turnsPos=gAll<0&&gPost>=0;
-  if(regime==="pos")verdict=`${flipTxt}，造市商逆勢避險，${turnsNeg?`到期前做區間${expiring?`（偏向 ${P(next.pin)} 磁吸）`:""}、到期後改順勢`:`${expiring?`到期前偏向 ${P(next.pin)} 磁吸，`:""}以區間操作為主`}。${roll}`;
+  if(regime==="pos")verdict=`${flipTxt}，造市商逆勢避險，${turnsNeg?`到期前做區間、到期後改順勢`:`以區間操作為主`}。${roll}`;
   else if(regime==="neg")verdict=`${flipTxt}，造市商順勢避險、波動放大，以順勢為主，${fAll!=null?"反彈到 Flip 前都算弱勢反彈":`整段價格都是負 Gamma，以 Call Wall ${P(callW)} 作為轉強關卡`}。${roll}`;
   else verdict=`${flipTxt}，正負 Gamma 交界，最容易假突破，先等方向。${roll}`;
-  const levels=[["合併 Flip",P(fAll)],["到期後 Flip",P(fPost)],["日波動 / 到期波動",`±${fmt(r10(sd),0)} / ±${fmt(r10(sT),0)} 元`],["主力期貨",`${MAIN} ${fmt(S,0)}`],["磁吸 / 最大痛點",`${next.pin?KR(next.pin):"—"} / ${next.maxPain?KR(next.maxPain):"—"}（${next.code} 履約價）`],[atrReal?"近 5 日 ATR":"ATR（估）",`${fmt(r10(A),0)} 元｜停損 ${fmt(half,0)}／價差寬 ${fmt(width,0)}`]];
+  const expList=expInfo.map(e=>{const v=new Date(e.exp.getTime()+15*36e5-e.days*864e5);
+    const cal=Math.max(0,Math.round((new Date(e.exp.getFullYear(),e.exp.getMonth(),e.exp.getDate())-new Date(v.getFullYear(),v.getMonth(),v.getDate()))/864e5));
+    return {code:e.code,date:`${e.exp.getMonth()+1}/${e.exp.getDate()}（${"日一二三四五六"[e.exp.getDay()]}）`,cal,td:tradingDaysTo(v,e.exp)};});
+  const expTxt=expList.map(x=>`${x.code} ${x.date}到期，剩 ${x.cal} 天（${x.td} 個交易日）`).join("；");
+  const levels=[["期權到期",expTxt],["合併 Flip",P(fAll)],["到期後 Flip",P(fPost)],["日波動 / 到期波動",`±${fmt(r10(sd),0)} / ±${fmt(r10(sT),0)} 元`],["主力期貨",`${MAIN} ${fmt(S,0)}`],["最大未平倉 / 最大痛點",`${next.pin?KR(next.pin):"—"} / ${next.maxPain?KR(next.maxPain):"—"}（${next.code} 履約價）`],[atrReal?"近 5 日 ATR":"ATR（估）",`${fmt(r10(A),0)} 元｜停損 ${fmt(half,0)}／價差寬 ${fmt(width,0)}`]];
   // 4. 具體操作：期貨價位（四捨五入到 10 點）＋本區塊最近到期的選擇權組合（以結算價估算）
   const plan=[];
   const W2=width;
@@ -695,11 +977,12 @@ function groupAdvice(g,{gg,w,expInfo},{S,r,grid,incRows,byExp,gAll,fAll,wAll,sd,
       plan.push(`選擇權（${next.code}，標的 ${next.und} ${fmt(Fu,0)}）：Flip 附近容易出現波動擴張，可考慮買 ${KR(k0)} 跨式，以結算價估成本約 ${fmt(c,1)} 元，損平 ${fmt(Math.round(k0/ratio)-c,0)}／${fmt(Math.round(k0/ratio)+c,0)}。`);}
   }
   if(turnsNeg){const fp=fPost??S;
-    plan.push(`到期後（${fmtD(next.exp).slice(5)} 收盤起）：若主力仍在 ${P(fPost)} 之下，區間單全部了結，改為反彈至 ${fmt(r10(fp-0.5*A),0)}～${P(fPost)} 不過偏空，停損站上 ${fmt(r10(fp+0.5*A),0)}。`);}
+    plan.push(fPost!=null?`到期後（${fmtD(next.exp).slice(5)} 收盤起）：若主力仍在 ${P(fPost)} 之下，區間單全部了結，改為反彈至 ${fmt(r10(fp-0.5*A),0)}～${P(fPost)} 不過偏空，停損站上 ${fmt(r10(fp+0.5*A),0)}。`
+      :`到期後（${fmtD(next.exp).slice(5)} 收盤起）：剩下的月份在掃描範圍內整段是負 Gamma（沒有 Flip），區間單全部了結，改為反彈至 ${fmt(r10(S),0)}～${fmt(r10(S+0.5*A),0)} 不過偏空，停損站上 ${fmt(r10(S+A),0)}。`);}
   if(turnsPos)plan.push(`到期後（${fmtD(next.exp).slice(5)} 收盤起）：負 Gamma 部位退場，空單逢低回補，若站穩 ${P(fPost)} 改回區間思維。`);
-  if(expiring)plan.push(`到期提醒：${next.code} 期權剩 ${next.days.toFixed(1)} 天，到期前 ${next.und} 容易被履約價 ${next.pin?KR(next.pin):"—"} 吸住；到期日 15:00 收盤時的實值期權會自動行權轉成期貨部位，不想留倉要先平倉或申請放棄行權。`);
+  if(expiring)plan.push(`到期提醒：${next.code} 期權剩 ${next.days.toFixed(1)} 天，最大未平倉在 ${next.pin?KR(next.pin):"—"}（台指期回測沒有穩定的磁吸效果，不要押注到期停在這裡）；到期日 15:00 收盤時的實值期權會自動行權轉成期貨部位，不想留倉要先平倉或申請放棄行權。`);
   plan.push(contrib);
-  return {regime,label,tagCls,verdict,levels,plan,fPost,gPost,next,sT,share,turnsNeg,turnsPos};
+  return {regime,label,tagCls,verdict,levels,plan,fPost,gPost,next,sT,share,turnsNeg,turnsPos,expList};
 }
 
 /* ---------- history ---------- */
@@ -728,7 +1011,7 @@ function renderHistory(){
               y:{ticks:{color:css("--muted"),callback:v=>fmt(v,0)},grid:{color:css("--line")}}}}});
   const last=items.at(-1),lf=last[`${mode}_flip`];
   const posDays=regime.filter(r=>r===true).length,tot=regime.filter(r=>r!==null).length;
-  note.textContent=`近 ${tot} 個交易日中，${posDays} 天收在合併 Flip 之上（正 Gamma）。最新 ${last.date}：結算價 ${fmt(last.F,0)}，Flip ${lf==null?"區間內無":fmt(lf,0)}。點的顏色：綠＝正 Gamma 日，紅＝負 Gamma 日。`;
+  note.textContent=`近 ${tot} 個交易日中，${posDays} 天收在合併 Flip 之上（正 Gamma）。最新 ${last.date}：結算價 ${fmt(last.F,0)}，Flip ${lf==null?"區間內無":fmt(lf,0)}。點的顏色：綠＝正 Gamma 日，紅＝負 Gamma 日。`+" "+btTrackText(items);
 }
 
 /* ---------- wiring ---------- */

@@ -119,6 +119,62 @@ select{font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:
 .copybox{width:100%;min-height:180px;font-family:var(--f-mono);font-size:12px;box-sizing:border-box;margin-top:10px}
 body.nodl .dl{display:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+.summary{margin:0;font-size:13px;line-height:1.6;padding:10px 12px;border-radius:6px;background:var(--chip)}
+.summary>b{display:block;font-size:12px;color:var(--muted);font-weight:600;letter-spacing:.04em;margin-bottom:2px}
+.summary{display:flex;flex-direction:column;gap:6px}
+.summary .verdict{margin:0}
+.summary ol{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:5px}
+.summary .lv{font-size:12px;padding:6px 0;border-block:1px solid var(--line)}
+.summary em.warn{font-style:normal;font-weight:700;color:var(--neg)}
+.btlight{border-left:4px solid var(--line);padding:10px 12px;border-radius:8px;background:color-mix(in srgb,var(--line) 22%,transparent);display:grid;gap:6px;font-size:13px;line-height:1.6}
+.btlight p{margin:0}
+.btlight.red{border-left-color:var(--neg);background:color-mix(in srgb,var(--neg) 9%,transparent)}
+.btlight.green{border-left-color:var(--pos);background:color-mix(in srgb,var(--pos) 9%,transparent)}
+.bt-head{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:15px}
+.bt-dot{width:12px;height:12px;border-radius:50%;background:var(--muted);flex:none}
+.btlight.red .bt-dot{background:var(--neg);box-shadow:0 0 0 4px color-mix(in srgb,var(--neg) 22%,transparent)}
+.btlight.green .bt-dot{background:var(--pos);box-shadow:0 0 0 4px color-mix(in srgb,var(--pos) 22%,transparent)}
+.btlight.red .bt-head b{color:var(--neg)}.btlight.green .bt-head b{color:var(--pos)}
+.bt-why{color:var(--muted);font-size:13px}
+.bt-sell{border-top:1px dashed var(--line);padding-top:6px;display:grid;gap:4px}.bt-tiers{margin:0;padding-left:18px;display:grid;gap:4px}.bt-sell.no b:last-of-type{color:var(--neg)}
+.bt-src{color:var(--muted);font-size:12px}
+.paper td,.paper th{white-space:nowrap}
+.pnl-pos{color:var(--pos);font-weight:700}.pnl-neg{color:var(--neg);font-weight:700}
+.ldot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:5px;background:var(--muted);vertical-align:middle}
+.ldot.red{background:var(--neg)}.ldot.green{background:var(--pos)}
+.paper-note{color:var(--muted);font-size:12px;margin:6px 0 0}
+.expchips{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 8px}
+.expchip{font-size:12px;padding:3px 8px;border-radius:999px;background:var(--chip);color:var(--ink)}
+.expchip.soon{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn);font-weight:700}
+.hl{color:var(--neg);font-weight:700}
+.bstat{display:inline-block;padding:2px 8px;border-radius:999px;font-size:12px;font-weight:700;white-space:nowrap}
+.bstat.ok{background:color-mix(in srgb,var(--pos) 18%,transparent);color:var(--pos)}
+.bstat.bad{background:color-mix(in srgb,var(--neg) 18%,transparent);color:var(--neg)}
+.bstat.warn{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn)}
+.bstat.mid{background:var(--chip);color:var(--muted)}
+.board td:first-child{white-space:normal;min-width:180px}
+.bt-night{border:1px solid var(--line);border-radius:8px;padding:8px 10px;display:grid;gap:4px;background:var(--bg)}
+.bt-night p{margin:0}
+.bt-night.red .bt-dot{background:var(--neg)}.bt-night.green .bt-dot{background:var(--pos)}
+.bt-night.red .bt-head b{color:var(--neg)}.bt-night.green .bt-head b{color:var(--pos)}
+.bt-night.changed{border-width:2px;border-color:var(--warn)}
+.nchg{background:var(--warn);color:#fff;font-size:12px;font-weight:700;padding:1px 8px;border-radius:999px}
+.health{border:2px solid var(--neg);background:color-mix(in srgb,var(--neg) 10%,var(--bg));color:var(--ink);border-radius:8px;padding:8px 12px;margin:8px 0;font-size:13px;line-height:1.6}
+.health b{color:var(--neg)}
+.summary{border:2px solid var(--line);border-radius:10px;padding:10px 14px;background:var(--panel);display:grid;gap:6px;margin:8px 0}
+.summary.red{border-color:var(--neg)}.summary.green{border-color:var(--pos)}
+.sum-head{display:flex;justify-content:space-between;align-items:center;gap:8px}.sum-head h2{margin:0;font-size:16px}
+.sum-list{margin:0;padding-left:20px;display:grid;gap:4px;font-size:14px;line-height:1.6}
+.sum-list li.neg b,.sum-list li.neg{color:var(--neg)}.sum-list li.pos>b:first-child{color:var(--pos)}
+.sizeform{display:flex;flex-wrap:wrap;gap:8px;align-items:end;font-size:12px}
+.sizeform label{display:grid;gap:2px}.sizeform input{width:130px;max-width:100%}
+.ghost{background:transparent;border:1px solid var(--line);border-radius:6px;padding:3px 10px;color:var(--ink);cursor:pointer;font-size:12px}
+.bt-sell.no b:last-of-type{color:var(--neg)}
+table.mini{border-collapse:collapse;width:100%;font-size:12px}
+table.mini th,table.mini td{padding:4px 6px;border-bottom:1px solid var(--line);text-align:left}
+table.mini th{color:var(--muted);font-weight:500}
+.tablewrap{overflow-x:auto;margin-bottom:8px}
+.muted{color:var(--muted)}
 </style>
 
 <header class="bar">
@@ -129,6 +185,8 @@ body.nodl .dl{display:none}
 </header>
 
 <main>
+  <div id="healthBar" class="health" role="alert" hidden></div>
+  <section id="summaryCard" class="summary" hidden></section>
   <div id="emptyState" class="card empty">每日資料讀取中。資料在交易日 18:27 後自動更新。</div>
 
   <section id="heroCard" class="card hero" hidden>
@@ -141,6 +199,7 @@ body.nodl .dl{display:none}
       <div class="stat"><div class="k">主力近 5 日 ATR</div><div id="hAtr" class="v">—</div></div>
     </div>
     <p id="hRead" class="read"></p>
+    <div id="btLight" class="btlight" hidden></div>
   </section>
 
   <section id="ladderCard" class="card" hidden>
@@ -169,6 +228,12 @@ body.nodl .dl{display:none}
     <h2>每日 Flip 走勢 <small>近 40 個交易日</small></h2>
     <div class="chartbox"><canvas id="histChart" aria-label="每日 Flip 走勢"></canvas></div>
     <div id="histNote" class="note"></div>
+  </section>
+
+  <section id="paperCard" class="card" hidden>
+    <h2>規則總覽與模擬帳本</h2>
+    <div id="boardBody"></div>
+    <div id="paperBody"></div>
   </section>
 
   <section id="expCard" class="card" hidden>
@@ -251,6 +316,10 @@ function compute(){
 let curveChart,histChart,last=null;
 const P=v=>v==null||!isFinite(v)?"—":fmt(v,0);
 function render(){
+  {const el=$("btLight"),h=btHtml(BT,state.spot,state.atr,state.rows,state.val);el.hidden=!h;el.className="btlight "+(BT?.bucket||"");el.innerHTML=h;}
+  {const h=paperHtml(PAPER,12),b=boardHtml(BT?.stats?._board,PAPER);$("paperCard").hidden=!(h||b);$("paperBody").innerHTML=h;$("boardBody").innerHTML=b;}
+  {const el=$("healthBar"),h=healthHtml(state.tradeDate,HEALTH);el.hidden=!h;el.innerHTML=h;}
+  {const el=$("summaryCard"),pl=todayPlan(BT,state.spot,state.atr,state.rows,state.val),h=summaryHtml(pl,sizeCfg());el.hidden=!h;el.className="summary "+(pl?pl.light:"");el.innerHTML=h;wireSummary(el,render);}
   if(!state.rows.length)return;
   const m=compute();last=m;
   const {S,fl,gNow,hNow,W,sdRef,atr,atrReal,blocks}=m;
@@ -270,7 +339,7 @@ function render(){
   $("hAtr").textContent=atrReal?`${fmt(atrReal,0)} 元`:`約 ${fmt(Math.round(atr),0)}（估）`;
   const z=fl===null?null:Math.abs(S-fl)/sdRef;
   $("hRead").textContent=reg==="near"?`現價離 Flip 不到半個日波動，避險方向隨時翻轉，先等收盤方向。`
-    :reg==="pos"?`現價在 Flip 之上${z!=null?` ${fmt(z,1)} 個日波動`:""}。主力每漲 1%，造市商賣出約 ${fmt(Math.abs(hNow),0)} 手期貨、跌則買回，偏區間；${W.put?P(W.put):"下方"}～${W.call?P(W.call):"上方"} 是主要範圍。`
+    :reg==="pos"?`現價在 Flip 之上${z!=null?` ${fmt(z,1)} 個日波動`:""}。主力每漲 1%，造市商賣出約 ${fmt(Math.abs(hNow),0)} 手期貨、跌則買回，偏區間；${W.put?P(W.put):"下方"}～${W.call?P(W.call):"上方"} 是避險量最大的價位（不保證擋得住價格）。`
     :`現價在 Flip 之下${z!=null?` ${fmt(z,1)} 個日波動`:""}。主力每跌 1%，造市商再賣出約 ${fmt(Math.abs(hNow),0)} 手期貨，趨勢容易延續${fl!=null?`，站回 ${P(fl)} 前偏弱`:""}。`;
 
   // ladder
@@ -315,10 +384,11 @@ function renderBlock(){
   const {g,adv}=B;
   const bold=t=>t.replace(/^([^：]{2,12})：/,"<b>$1</b>：");
   body.innerHTML=`<h2>${g.name} <span class="tag ${adv.tagCls}">${adv.label}</span></h2>
+    <div class="expchips">${(adv.expList||[]).map(x=>`<span class="expchip${x.td<=1?" soon":""}"><b>${x.code}</b> ${x.date}到期｜剩 ${x.cal} 天（${x.td} 個交易日）</span>`).join("")}</div>
     <p class="verdict">${adv.verdict}</p>
     <dl class="lv">${adv.levels.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join("")}</dl>
     <h2>具體操作</h2>
-    <ol class="plan">${adv.plan.map(t=>`<li><span>${bold(t)}</span></li>`).join("")}</ol>
+    <ol class="plan">${adv.plan.map(t=>`<li><span>${hlPlan(t)}</span></li>`).join("")}</ol>
     <div class="acts"><button type="button" class="btn primary" data-ex="copy">複製到 LINE／筆記</button><button type="button" class="btn dl" data-ex="txt">下載 .txt</button></div>
     <div class="acts"><button type="button" class="btn" data-ex="copyall">複製三個區塊</button></div>`;
 }
@@ -344,7 +414,7 @@ function renderHistory(){
       plugins:{legend:{display:false},tooltip:{callbacks:{label:it=>`${it.dataset.label}：${fmt(it.parsed.y,0)}`}}},
       scales:{x:{ticks:{color:css("--muted"),maxTicksLimit:5,maxRotation:0},grid:{display:false}},y:{ticks:{color:css("--muted"),maxTicksLimit:6,callback:v=>fmt(v,0)},grid:{color:css("--line")}}}}});
   const pos=items.filter((it,i)=>flips[i]!=null&&it.F>=flips[i]).length,tot=flips.filter(v=>v!=null).length;
-  $("histNote").textContent=`藍線為主力期貨、紫色虛線為合併 Flip。近 ${tot} 日有 ${pos} 天收在 Flip 之上（綠點），其餘為負 Gamma 日（紅點）。`;
+  $("histNote").textContent=`藍線為主力期貨、紫色虛線為合併 Flip。近 ${tot} 日有 ${pos} 天收在 Flip 之上（綠點），其餘為負 Gamma 日（紅點）。`+" "+btTrackText(history.slice(-120));
 }
 
 /* ---------- export ---------- */
