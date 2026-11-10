@@ -402,7 +402,9 @@ function btHtml(bt,F,atr,rows,val){
   let est="",hot=false;
   if(m&&atr&&F){const ap=atr/F*100,e=m.a+m.b*ap+(red?m.c:0);hot=e>=1.5*(meta.tr1||2);
     est=`<p class="bt-est">預估下一個交易日真實波幅 <b>${f2(e)}%</b>（主力約 <b>${n0(e/100*F)} 元</b>）＝ 基準 ${f2(m.a)}% ＋ 近 5 日 ATR ${f2(ap)}% × ${f2(m.b)}${red?` ＋ 紅燈加成 ${f2(m.c)}%`:""}</p>`;}
-  const tip=red?"實際波動常高於隱含波動：避免裸賣期權，賣方改用有保護的價差並縮小手數。"
+  const weak=m&&Math.abs(m.t_red||0)<2;
+  const tip=weak?`<b class="hl">PTA 回測：紅綠燈對隔日波動沒有明顯預測力</b>（紅燈 ${f2(bt.stats.red?.tr1||0)}%、綠燈 ${f2(bt.stats.green?.tr1||0)}%，t≈${f2(m.t_red)}），燈號只當參考，進出場以下方「規則總覽」狀態為「累積中／正常」的規則為準。`
+    :red?"實際波動常高於隱含波動：避免裸賣期權，賣方改用有保護的價差並縮小手數。"
     :hot?"雖在 Flip 之上，但近期波動還沒退：賣方先降手數、履約價放遠。":"實際波動通常低於隱含波動，賣方相對有利。";
   return `<div class="bt-head"><span class="bt-dot" aria-hidden="true"></span><b>${red?"紅燈｜Flip 之下（負 Gamma）":"綠燈｜Flip 之上（正 Gamma）"}</b><span class="bt-why">${why}</span></div>
 <p class="bt-stat">回測同組 ${s.n} 天：隔日真實波幅 <b>${f2(s.tr1)}%</b>（全部平均 ${f2(meta.tr1||0)}%）、漲跌 ≥${meta.bigPct||1.5}% 機率 <b>${p1(s.big)}</b>（全部 ${p1(meta.big||0)}）、未來 5 日實際÷隱含波動 <b>${s.rv_iv==null?"—":f2(s.rv_iv)}</b></p>
@@ -462,6 +464,14 @@ function btMaHtml(bt,rows,val){
 ${act?`<ul class="bt-tiers">${act}</ul>`:`<span>今天沒有「近期第一次跌破、且均線上揚」的訊號。</span>`}
 <span class="bt-src">回測 ${M.from}～${M.to}（${M.src||"主力連續"}，跌破前連續 ${M.N} 日站上、今天均線高於昨天）：買最近月份價外 1% Call 持有到期 ${btSt(M.call)}；同樣條件買 Put ${btSt(M.put)}；對照每天都買 ${btSt(M.baseCall)}。紅燈 ${btSt(sr)}，綠燈 ${btSt(sg)}。</span></div>`;
 }
+function ruleStatus(r,L){
+  const f=r&&r.full,a=r&&r.first,b=r&&r.second,ln=L&&L.closed?L.closed:0,la=ln?L.total/ln:null;
+  if(!f||f.avg<=0||(f.t!=null&&f.t<1.5))return {st:"回測不支持",cls:"bad"};
+  if(!a||!b||a.avg<=0||b.avg<=0)return {st:"前後段不一致",cls:"warn"};
+  if(ln<10)return {st:`實績累積中（${ln} 筆）`,cls:"mid"};
+  if(la<f.avg-2*f.sd/Math.sqrt(ln))return {st:"實績明顯落後，暫停參考",cls:"bad"};
+  return {st:"正常",cls:"ok"};
+}
 function boardHtml(B,pp){
   if(!B||!B.rules)return "";
   const f1=v=>(+v).toFixed(1),sg=v=>(v>=0?"+":"")+f1(v);
@@ -469,12 +479,7 @@ function boardHtml(B,pp){
   const cell=s=>s?`${sg(s.avg)}<span class="muted">｜${s.n} 筆｜t ${s.t==null?"—":f1(s.t)}</span>`:"—";
   const rows=B.rules.map(r=>{const f=r.full,a=r.first,b=r.second,L=live[r.key];
     const ln=L&&L.closed?L.closed:0,la=ln?L.total/ln:null;
-    let st,cls;
-    if(!f||f.avg<=0||(f.t!=null&&f.t<1.5)){st="回測不支持";cls="bad";}
-    else if(!a||!b||a.avg<=0||b.avg<=0){st="前後段不一致";cls="warn";}
-    else if(ln<10){st=`實績累積中（${ln} 筆）`;cls="mid";}
-    else if(la<f.avg-2*f.sd/Math.sqrt(ln)){st="實績明顯落後，暫停參考";cls="bad";}
-    else {st="正常";cls="ok";}
+    const {st,cls}=ruleStatus(r,L);
     const lv=ln?`${sg(la)}<span class="muted">｜${ln} 筆｜累計 ${sg(L.total)}</span>`:"—";
     return `<tr><td>${r.name}</td><td>${cell(f)}</td><td>${cell(a)}</td><td>${cell(b)}</td><td>${lv}</td><td><span class="bstat ${cls}">${st}</span></td></tr>`;}).join("");
   return `<div class="tablewrap"><table class="mini board"><thead><tr><th>規則</th><th>回測全期（平均／筆數／t）</th><th>前段</th><th>後段（${B.mid} 起）</th><th>模擬帳本實績</th><th>狀態</th></tr></thead><tbody>${rows}</tbody></table></div>
@@ -539,8 +544,12 @@ function todayPlan(bt,F,atr,rows,val){
   const Ks=[...new Set(N.ch.map(x=>x.K))].filter(K=>N.ch.some(x=>x.K===K&&x.isCall)&&N.ch.some(x=>x.K===K&&!x.isCall));
   const K=Ks.length?Ks.reduce((a,k)=>Math.abs(k-N.F1)<Math.abs(a-N.F1)?k:a,Ks[0]):null,atmC=K!=null?N.ch.find(x=>x.K===K&&x.isCall):null;
   const buyCall=red&&bt.ret!=null&&bt.ret<0&&atmC?{K,px:atmC.px}:null;
+  const atmP=K!=null?N.ch.find(x=>x.K===K&&!x.isCall):null;
+  const straddle=red&&bt.expand===true&&atmC&&atmP?{K,c:atmC.px,p:atmP.px}:null;
+  const live={};for(const t of (PAPER&&PAPER.tiers)||[])live[t.name]=t;
+  const status=key=>{const r=(B&&B.rules||[]).find(x=>x.key===key);return r?ruleStatus(r,live[key]):null;};
   const maC=bt.ma&&bt.ma.breaks&&bt.ma.breaks.length?N.ch.filter(x=>x.isCall&&x.K>=N.F1*1.01).sort((a,b)=>a.K-b.K)[0]:null;
-  return {N,light:bt.bucket,E,sells,buyCall,ma:maC?{K:maC.K,px:maC.px,lines:bt.ma.breaks}:null,skewHi:bt.vol&&bt.vol.skewPct!=null&&bt.vol.skewPct>=0.8};
+  return {N,light:bt.bucket,E,sells,buyCall,straddle,status,ma:maC?{K:maC.K,px:maC.px,lines:bt.ma.breaks}:null,skewHi:bt.vol&&bt.vol.skewPct!=null&&bt.vol.skewPct>=0.8};
 }
 function lotsFor(plan,cfg){
   if(!cfg)return {};const out={};
@@ -550,17 +559,20 @@ function lotsFor(plan,cfg){
     let L=Math.max(0,Math.min(byDD,byM));if(plan.skewHi)L=Math.floor(L/2);out[s.name]={lots:L,perSet};}
   const one=px=>px?Math.max(0,Math.floor(cfg.cap*cfg.loss/100/(px*5))):0;
   if(plan.buyCall)out.buyCall={lots:one(plan.buyCall.px)};if(plan.ma)out.ma={lots:one(plan.ma.px)};
+  if(plan.straddle)out.straddle={lots:one(plan.straddle.c+plan.straddle.p)};
   return out;
 }
 function summaryHtml(plan,cfg){
   if(!plan)return "";
   const n0=v=>Math.round(v).toLocaleString("zh-TW"),f1=v=>(+v).toFixed(1),red=plan.light==="red",L=lotsFor(plan,cfg),N=plan.N;
+  const tag=k=>{const s=plan.status&&plan.status(k);return s?` <span class="bstat ${s.cls}">${s.st}</span>`:"";};
   const lt=k=>cfg&&L[k]!=null?`，建議 <b>${L[k].lots} 手</b>${L[k].perSet?`（每組保證金約 ${n0(L[k].perSet)} 元）`:""}`:"";
   const lines=[`<li class="${red?"neg":"pos"}"><b>${red?"紅燈":"綠燈"}</b>（日盤收盤）｜預估下一個交易日主力真實波幅 ${plan.E?`<b>±${n0(plan.E/2)}</b>（全幅約 ${n0(plan.E)} 元）`:"—"}｜最近月份 ${N.code} 期權，剩 ${N.n} 個交易日（標的 ${n0(N.F1)}）</li>`];
-  for(const s of plan.sells)lines.push(`<li>賣方${s.name}（k=${s.k}）：${s.ok?`賣 <b>${n0(s.c.K)}C</b>＋<b>${n0(s.p.K)}P</b>（結算價合計 ${f1(s.credit)} 元／噸）${lt(s.name)}`:`<span class="muted">不進場（${s.why}）</span>`}</li>`);
+  for(const s of plan.sells)lines.push(`<li>賣方${s.name}（k=${s.k}）${tag(s.name)}：${s.ok?`賣 <b>${n0(s.c.K)}C</b>＋<b>${n0(s.p.K)}P</b>（結算價合計 ${f1(s.credit)} 元／噸）${lt(s.name)}`:`<span class="muted">不進場（${s.why}）</span>`}</li>`);
   if(plan.skewHi)lines.push(`<li class="neg">Put 偏斜在近 60 日高檔 → 賣方手數減半（已反映在建議手數）</li>`);
-  lines.push(`<li>買方：${plan.buyCall?`紅燈＋下跌 → 買 <b>${n0(plan.buyCall.K)}C</b>（${f1(plan.buyCall.px)}）${lt("buyCall")}`:`<span class="muted">條件不成立</span>`}</li>`);
-  lines.push(`<li>均線跌破：${plan.ma?`跌破 ${plan.ma.lines.map(x=>x+"MA").join("、")} → 買 <b>${n0(plan.ma.K)}C</b>（${f1(plan.ma.px)}）${lt("ma")}`:`<span class="muted">今天沒有訊號</span>`}</li>`);
+  lines.push(`<li>買方跨式${tag("買方跨式")}：${plan.straddle?`紅燈＋波動放大 → 買 <b>${n0(plan.straddle.K)}C＋${n0(plan.straddle.K)}P</b>（合計 ${f1(plan.straddle.c+plan.straddle.p)} 元）${lt("straddle")}`:`<span class="muted">條件不成立（需紅燈且 ATR 放大）</span>`}</li>`);
+  lines.push(`<li>買方 Call${tag("買方Call")}：${plan.buyCall?`紅燈＋下跌 → 買 <b>${n0(plan.buyCall.K)}C</b>（${f1(plan.buyCall.px)}）${lt("buyCall")}`:`<span class="muted">條件不成立</span>`}</li>`);
+  lines.push(`<li>均線跌破${tag("均線Call")}：${plan.ma?`跌破 ${plan.ma.lines.map(x=>x+"MA").join("、")} → 買 <b>${n0(plan.ma.K)}C</b>（${f1(plan.ma.px)}）${lt("ma")}`:`<span class="muted">今天沒有訊號</span>`}</li>`);
   const cfgTxt=cfg?`資金 ${n0(cfg.cap)} 元、可承受回撤 ${cfg.dd}%、保證金最多用 ${cfg.mu}%、買方單筆最多虧 ${cfg.loss}%、期貨保證金比例 ${cfg.rate}%`:"尚未設定資金，按「部位設定」輸入後會顯示建議手數";
   return `<div class="sum-head"><h2>今日重點</h2><button type="button" id="sizeBtn" class="ghost">部位設定</button></div><ol class="sum-list">${lines.join("")}</ol>
 <p class="paper-note">${cfgTxt}。手數＝min（資金×可承受回撤 ÷（規則回測最大回撤×5 噸），資金×保證金上限 ÷（每組保證金×同時持有組數，最多以 5 組計））；賣出保證金依鄭商所公式（權利金＋max(期貨保證金−虛值額／2, 期貨保證金／2)，寬跨式取較高一腿＋另一腿權利金）估算，期貨保證金比例請依期貨商實際收取調整。</p>
