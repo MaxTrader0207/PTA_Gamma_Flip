@@ -1,0 +1,63 @@
+name: PTA Gamma Flip 長期回測
+# 手動執行：逐日下載鄭商所期貨／期權日行情，計算 Gamma Flip 並回測各規則，結果寫到 backtest/（不影響儀表板資料）
+
+on:
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "往回抓幾個日曆天（2600 ≈ PTA 期權上市至今）"
+        default: "2600"
+      resume:
+        description: "保留既有 backtest/daily.json，只補缺的日子（yes/no）"
+        default: "yes"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: pta-data
+  cancel-in-progress: false
+
+jobs:
+  backtest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install requests
+      - name: 下載與計算
+        run: |
+          R=""
+          if [ "${{ github.event.inputs.resume || 'yes' }}" = "yes" ]; then R="--resume"; fi
+          python scripts/pta_bt.py --days "${{ github.event.inputs.days || '2600' }}" $R
+      - name: 回測分析
+        run: |
+          if [ -f scripts/pta_analyze.py ]; then python scripts/pta_analyze.py; fi
+      - name: 提交結果
+        if: always()
+        run: |
+          git config user.name "pta-bot"
+          git config user.email "pta-bot@users.noreply.github.com"
+          git add backtest
+          git commit -m "backtest: PTA $(TZ=Asia/Taipei date +%F)" || exit 0
+          for i in 1 2 3; do git pull --rebase -q -X theirs && git push && exit 0; sleep 5; done
+          exit 1
+      - name: 失敗時開 Issue 通知（成功時自動關閉）
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          STATUS: ${{ job.status }}
+        run: |
+          R=${{ github.repository }}
+          T="自動執行失敗：${{ github.workflow }}"
+          N=$(gh issue list -R "$R" --state open --search "\"$T\" in:title" --json number --jq '.[0].number' || true)
+          B="執行紀錄：${{ github.server_url }}/$R/actions/runs/${{ github.run_id }}（台北 $(TZ=Asia/Taipei date '+%F %T')）"
+          if [ "$STATUS" = "success" ]; then
+            if [ -n "$N" ]; then gh issue close "$N" -R "$R" -c "已恢復正常。$B"; fi
+          else
+            if [ -n "$N" ]; then gh issue comment "$N" -R "$R" -b "再次失敗。$B"; else gh issue create -R "$R" -t "$T" -b "$B"; fi
+          fi
