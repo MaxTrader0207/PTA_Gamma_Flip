@@ -341,6 +341,13 @@ def main():
             it.update({"open": mf["open"], "high": hi, "low": lo, "close": cl})
         if tr is not None:
             it["tr"] = round(tr, 1)
+        if pc and cl == cl and cl > 0:
+            it["ret"] = round((cl / pc - 1) * 100, 3)
+        try:
+            import pta_live
+            it.update(pta_live.vol_ind(rows, futs, S0, val))
+        except Exception as e:  # noqa: BLE001
+            print("波動指標失敗", d, e)
         items[d.isoformat()] = it
         json.dump(snap, open(os.path.join(DATA, "daily", d.strftime("%Y%m%d") + ".json"), "w", encoding="utf-8"),
                   ensure_ascii=False, separators=(",", ":"))
@@ -355,6 +362,27 @@ def main():
             if len(trs) >= 5:
                 it["atr5"] = round(sum(trs[-5:]) / 5, 1)
     latest["atr5"] = items[latest["tradeDate"]].get("atr5")
+    # 回測燈號、均線、波動指標、模擬帳本、資料健康
+    try:
+        import pta_live
+        for i, it in enumerate(seq):
+            if i >= 5 and it.get("atr5") and seq[i - 5].get("atr5"):
+                it["expand"] = it["atr5"] / it["F"] > seq[i - 5]["atr5"] / seq[i - 5]["F"]
+        recent = {d.isoformat() for d, _, _ in days}
+        for i, it in enumerate(seq):
+            if it["date"] in recent:
+                it["maBreaks"] = pta_live.ma_status(pta_live.adj_prices(seq[:i + 1]))["breaks"]
+        latest["btSignal"] = pta_live.attach_signal(latest, seq)
+        sig = (latest["btSignal"] or {}).get("stats") or {}
+        tiers = [{"name": t["name"], "k": t["k"]} for t in (sig.get("_strategy") or {}).get("tiers", [])]
+        if sig.get("_model") and tiers:
+            latest["paper"] = pta_live.paper_update(days, items, sig["_model"], tiers)
+    except Exception as e:  # noqa: BLE001
+        print("回測燈號／模擬帳本失敗：", e)
+    rr = latest.get("rows") or []
+    latest["health"] = {"rows": len(rr), "iv": round(sum(1 for r in rr if r[6]) / len(rr), 3) if rr else 0,
+                        "atr": bool(latest.get("atr5")), "futs": len(latest.get("futs") or {})}
+    latest["holidays"] = sorted(h for h in HOLIDAYS if h >= (today - timedelta(days=7)).isoformat())
     li = items[latest["tradeDate"]]
     latest["ohlc"] = [li.get(k) for k in ("open", "high", "low", "close")]
     json.dump(latest, open(os.path.join(DATA, "latest.json"), "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":"))
