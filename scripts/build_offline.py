@@ -5,6 +5,7 @@
 """
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.join(os.path.dirname(__file__), "..")
@@ -15,6 +16,38 @@ FONTS = '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?'
 def read(p):
     with open(os.path.join(ROOT, p), encoding="utf-8") as f:
         return f.read()
+
+
+def js_esc(t):
+    out = []
+    for ch in t:
+        o = ord(ch)
+        if o < 128:
+            out.append(ch)
+        elif o < 0x10000:
+            out.append("\\u%04x" % o)
+        else:
+            o -= 0x10000
+            out.append("\\u%04x\\u%04x" % (0xD800 + (o >> 10), 0xDC00 + (o & 0x3FF)))
+    return "".join(out)
+
+
+def to_ascii(html):
+    """把非 ASCII 字元全部轉成跳脫序列，檔案變成純 ASCII：
+    寄信或下載時就算被當成 Big5／Latin-1 等其他編碼，中文也不會變成亂碼。
+    <script> 內用 \\uXXXX，<style> 內用 CSS 跳脫，其餘用 &#xXXXX;"""
+    parts = re.split(r"(<script\b[^>]*>.*?</script>|<style\b[^>]*>.*?</style>)", html, flags=re.S | re.I)
+    out = []
+    for i, part in enumerate(parts):
+        if i % 2 == 0:
+            out.append("".join(c if ord(c) < 128 else "&#x%x;" % ord(c) for c in part))
+        elif part[:6].lower() == "<style":
+            out.append("".join(c if ord(c) < 128 else "\\%06x" % ord(c) for c in part))
+        else:
+            out.append(js_esc(part))
+    r = "".join(out)
+    assert r.isascii()
+    return r
 
 
 def main():
@@ -50,7 +83,8 @@ def main():
         s = s.replace('href="./mobile.html"', f'href="./{names["mobile"]}"')
         s = s.replace('$("deskLink").href="./index.html";', f'$("deskLink").href="./{names["desktop"]}";')
         s = s.replace("<body>", "<body>" + note, 1)
-        with open(os.path.join(ROOT, "offline", names[key]), "w", encoding="utf-8") as f:
+        s = to_ascii(s)
+        with open(os.path.join(ROOT, "offline", names[key]), "w", encoding="ascii", newline="\n") as f:
             f.write(s)
         print("ok", names[key], len(s), date)
 
