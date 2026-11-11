@@ -553,11 +553,14 @@
 "F": 6778.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6800.0,
 "pc": 238.0,
-"debit": 238.0
+"debit": 238.0,
+"S": 6218.0,
+"approx": false,
+"pnl": -239.0
 },
 {
 "date": "2026-10-13",
@@ -568,13 +571,16 @@
 "F": 6778.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方跨式",
 "Kc": 6800.0,
 "pc": 238.0,
 "Kp": 6800.0,
 "pp": 260.0,
-"debit": 498.0
+"debit": 498.0,
+"S": 6218.0,
+"approx": false,
+"pnl": 82.0
 },
 {
 "date": "2026-10-14",
@@ -613,13 +619,16 @@
 "F": 6782.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方跨式",
 "Kc": 6800.0,
 "pc": 224.5,
 "Kp": 6800.0,
 "pp": 242.5,
-"debit": 467.0
+"debit": 467.0,
+"S": 6218.0,
+"approx": false,
+"pnl": 113.0
 },
 {
 "date": "2026-10-15",
@@ -658,11 +667,14 @@
 "F": 6658.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6700.0,
 "pc": 194.5,
-"debit": 194.5
+"debit": 194.5,
+"S": 6218.0,
+"approx": false,
+"pnl": -195.5
 },
 {
 "date": "2026-10-16",
@@ -701,11 +713,14 @@
 "F": 6630.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6600.0,
 "pc": 216.5,
-"debit": 216.5
+"debit": 216.5,
+"S": 6218.0,
+"approx": false,
+"pnl": -217.5
 },
 {
 "date": "2026-10-19",
@@ -744,11 +759,14 @@
 "F": 6614.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6600.0,
 "pc": 199.0,
-"debit": 199.0
+"debit": 199.0,
+"S": 6218.0,
+"approx": false,
+"pnl": -200.0
 },
 {
 "date": "2026-10-20",
@@ -815,11 +833,14 @@
 "F": 6554.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6600.0,
 "pc": 164.5,
-"debit": 164.5
+"debit": 164.5,
+"S": 6218.0,
+"approx": false,
+"pnl": -165.5
 },
 {
 "date": "2026-10-22",
@@ -858,13 +879,16 @@
 "F": 6594.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方跨式",
 "Kc": 6600.0,
 "pc": 184.5,
 "Kp": 6600.0,
 "pp": 190.5,
-"debit": 375.0
+"debit": 375.0,
+"S": 6218.0,
+"approx": false,
+"pnl": 5.0
 },
 {
 "date": "2026-10-23",
@@ -1099,11 +1123,14 @@
 "F": 6594.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6600.0,
 "pc": 160.5,
-"debit": 160.5
+"debit": 160.5,
+"S": 6218.0,
+"approx": false,
+"pnl": -161.5
 },
 {
 "date": "2026-11-03",
@@ -1114,13 +1141,16 @@
 "F": 6594.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方跨式",
 "Kc": 6600.0,
 "pc": 160.5,
 "Kp": 6600.0,
 "pp": 166.5,
-"debit": 327.0
+"debit": 327.0,
+"S": 6218.0,
+"approx": false,
+"pnl": 53.0
 },
 {
 "date": "2026-11-04",
@@ -1159,11 +1189,14 @@
 "F": 6530.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6500.0,
 "pc": 167.0,
-"debit": 167.0
+"debit": 167.0,
+"S": 6218.0,
+"approx": false,
+"pnl": -168.0
 },
 {
 "date": "2026-11-04",
@@ -1174,13 +1207,16 @@
 "F": 6530.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方跨式",
 "Kc": 6500.0,
 "pc": 167.0,
 "Kp": 6500.0,
 "pp": 137.0,
-"debit": 304.0
+"debit": 304.0,
+"S": 6218.0,
+"approx": false,
+"pnl": -24.0
 },
 {
 "date": "2026-11-05",
@@ -1205,14 +1241,17 @@
 "F": 6230.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "均線Call",
 "Kc": 6300.0,
 "pc": 98.0,
 "debit": 98.0,
 "ma": [
 60
-]
+],
+"S": 6218.0,
+"approx": false,
+"pnl": -99.0
 },
 {
 "date": "2026-11-05",
@@ -1237,11 +1276,14 @@
 "F": 6230.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6200.0,
 "pc": 147.5,
-"debit": 147.5
+"debit": 147.5,
+"S": 6218.0,
+"approx": false,
+"pnl": -130.5
 },
 {
 "date": "2026-11-05",
@@ -1252,13 +1294,16 @@
 "F": 6230.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方跨式",
 "Kc": 6200.0,
 "pc": 147.5,
 "Kp": 6200.0,
 "pp": 117.5,
-"debit": 265.0
+"debit": 265.0,
+"S": 6218.0,
+"approx": false,
+"pnl": -249.0
 },
 {
 "date": "2026-11-06",
@@ -1297,13 +1342,16 @@
 "F": 6220.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方跨式",
 "Kc": 6200.0,
 "pc": 122.5,
 "Kp": 6200.0,
 "pp": 102.5,
-"debit": 225.0
+"debit": 225.0,
+"S": 6218.0,
+"approx": false,
+"pnl": -209.0
 },
 {
 "date": "2026-11-09",
@@ -1342,11 +1390,14 @@
 "F": 6308.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6300.0,
 "pc": 84.0,
-"debit": 84.0
+"debit": 84.0,
+"S": 6218.0,
+"approx": false,
+"pnl": -85.0
 },
 {
 "date": "2026-11-10",
@@ -1385,11 +1436,42 @@
 "F": 6162.0,
 "light": "red",
 "side": "buy",
-"status": "open",
+"status": "closed",
 "tier": "買方Call",
 "Kc": 6200.0,
 "pc": 36.5,
-"debit": 36.5
+"debit": 36.5,
+"S": 6218.0,
+"approx": false,
+"pnl": -19.5
+},
+{
+"date": "2026-11-11",
+"und": "TA701",
+"code": "TA701",
+"exp": "2026-12-11",
+"n": 22,
+"F": 5952.0,
+"light": "red",
+"tier": "保守",
+"k": 3.0,
+"dist": 2634,
+"status": "skip",
+"reason": "紅燈不進場"
+},
+{
+"date": "2026-11-11",
+"und": "TA701",
+"code": "TA701",
+"exp": "2026-12-11",
+"n": 22,
+"F": 5952.0,
+"light": "red",
+"tier": "標準",
+"k": 2.5,
+"dist": 2195,
+"status": "skip",
+"reason": "紅燈不進場"
 }
 ],
 "start": "2026-09-17"

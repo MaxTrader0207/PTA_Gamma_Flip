@@ -1,23 +1,6 @@
 {
 "items": [
 {
-"date": "2025-10-30",
-"F": 4608.0,
-"main": "TA601",
-"naive_flip": 4546.3,
-"naive_gex": 5707.11,
-"open": 4646.0,
-"high": 4664.0,
-"low": 4560.0,
-"close": 4570.0,
-"src": "backtest",
-"ret": -1.424,
-"iv30": 0.1611,
-"skew": -0.0149,
-"tr": 104.0,
-"atr5": 78.0
-},
-{
 "date": "2025-10-31",
 "F": 4582.0,
 "main": "TA601",
@@ -4750,7 +4733,6 @@
 "low": 6570.0,
 "close": 6648.0,
 "tr": 196.0,
-"ret": -0.39,
 "iv30": 0.3506,
 "skew": -0.0197,
 "atr5": 210.4,
@@ -5014,7 +4996,39 @@
 "atr5": 207.6,
 "expand": false,
 "maBreaks": []
+},
+{
+"date": "2026-11-11",
+"F": 5952.0,
+"main": "TA701",
+"naive_gex": -2776.9,
+"naive_flip": 6327.9,
+"naive_flipN1": 6353.3,
+"naive_gexN1": -2789.22,
+"naive_flipN2": 6193.8,
+"naive_gexN2": -42.79,
+"naive_flipM": 5752.4,
+"naive_gexM": 55.1,
+"short_gex": -14188.73,
+"short_flip": null,
+"short_flipN1": null,
+"short_gexN1": -13251.53,
+"short_flipN2": null,
+"short_gexN2": -263.26,
+"short_flipM": null,
+"short_gexM": -673.93,
+"open": 5900.0,
+"high": 6032.0,
+"low": 5864.0,
+"close": 6016.0,
+"tr": 168.0,
+"ret": 1.725,
+"iv30": 0.312,
+"skew": -0.0003,
+"atr5": 201.2,
+"expand": false,
+"maBreaks": []
 }
 ],
-"updatedAt": "2026-11-11T01:43:21+08:00"
+"updatedAt": "2026-11-12T00:31:12+08:00"
 }
