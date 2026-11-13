@@ -3,8 +3,8 @@ name: PTA Gamma Flip 長期回測
 
 on:
   schedule:
-    # 每月第一個週六台北 09:30 自動重跑（GitHub 排程可能延遲數小時，月度工作不受影響）
-    - cron: "30 1 1-7 * 6"
+    # 每月 5 日台北 09:30 自動重跑（GitHub 排程可能延遲數小時，月度工作不受影響）
+    - cron: "30 1 5 * *"
   workflow_dispatch:
     inputs:
       days:
