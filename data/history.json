@@ -1,23 +1,6 @@
 {
 "items": [
 {
-"date": "2025-11-04",
-"F": 4596.0,
-"main": "TA601",
-"naive_flip": 4569.6,
-"naive_gex": 3651.58,
-"open": 4580.0,
-"high": 4620.0,
-"low": 4568.0,
-"close": 4604.0,
-"src": "backtest",
-"ret": 0.174,
-"iv30": 0.1616,
-"skew": 0.0119,
-"tr": 52.0,
-"atr5": 64.8
-},
-{
 "date": "2025-11-05",
 "F": 4584.0,
 "main": "TA601",
@@ -5056,7 +5039,39 @@
 "atr5": 152.4,
 "expand": false,
 "maBreaks": []
+},
+{
+"date": "2026-11-16",
+"F": 6078.0,
+"main": "TA701",
+"naive_gex": -1601.88,
+"naive_flip": 6190.7,
+"naive_flipN1": 6238.2,
+"naive_gexN1": -2067.19,
+"naive_flipN2": 5882.7,
+"naive_gexN2": 131.37,
+"naive_flipM": null,
+"naive_gexM": 333.94,
+"short_gex": -20137.76,
+"short_flip": null,
+"short_flipN1": null,
+"short_gexN1": -17447.69,
+"short_flipN2": null,
+"short_gexN2": -1374.75,
+"short_flipM": null,
+"short_gexM": -1315.33,
+"open": 6140.0,
+"high": 6150.0,
+"low": 6006.0,
+"close": 6070.0,
+"tr": 144.0,
+"ret": -1.172,
+"iv30": 0.3114,
+"skew": -0.0036,
+"atr5": 157.2,
+"expand": false,
+"maBreaks": []
 }
 ],
-"updatedAt": "2026-11-14T01:39:51+08:00"
+"updatedAt": "2026-11-16T18:48:44+08:00"
 }
